@@ -33,7 +33,7 @@ renderView1.SamplesPerPixel = 128
 renderView1.VolumeAnisotropy = 1.0
 renderView1.ProgressivePasses = 10
 renderView1.RouletteDepth = 10
-renderView1.LightScale = 10.0
+renderView1.LightScale = 7.0
 renderView1.Backgroundmode = 'Both'
 renderView1.EnvironmentalBG = [0.0, 0.0, 0.0]
 renderView1.EnvironmentalBG2 = [0.0, 0.0, 0.0]
@@ -76,7 +76,7 @@ half_Stellarator.ClipType.Origin = [-1.8587150573730469, 6.402712821960449, -14.
 half_Stellarator.HyperTreeGridClipper.Origin = [-1.8587150573730469, 6.402712821960449, -14.561095237731934]
 
 # create a new 'PLY Reader'
-plasma_volply = PLYReader(registrationName='plasmaSurface.ply', FileNames=['${PLASMA_OBJ_PATH}'])
+plasma_volply = PLYReader(registrationName='plasma_surface.ply', FileNames=['${PLASMA_OBJ_PATH}'])
 
 # ----------------------------------------------------------------
 # setup the visualization in view 'renderView1'
@@ -88,25 +88,20 @@ plasma_volplyDisplay = Show(plasma_volply, renderView1, 'GeometryRepresentation'
 # trace defaults for the display properties.
 plasma_volplyDisplay.Representation = 'Surface'
 plasma_volplyDisplay.AmbientColor = [0.0, 0.3333333333333333, 1.0]
-plasma_volplyDisplay.ColorArrayName = ['POINTS', '']
+plasma_volplyDisplay.ColorArrayName = [None, '']
 plasma_volplyDisplay.DiffuseColor = [0.0, 0.3333333333333333, 1.0]
-plasma_volplyDisplay.MapScalars = 0
-plasma_volplyDisplay.InterpolateScalarsBeforeMapping = 0
 plasma_volplyDisplay.Opacity = 0.1
 plasma_volplyDisplay.SpecularPower = 0.0
 plasma_volplyDisplay.Luminosity = 0.0
 plasma_volplyDisplay.Diffuse = 0.4
 plasma_volplyDisplay.Roughness = 0.0
-plasma_volplyDisplay.EdgeTint = [0.0, 0.3333333333333333, 1.0]
 plasma_volplyDisplay.SelectTCoordArray = 'None'
-plasma_volplyDisplay.SelectNormalArray = 'Normals'
+plasma_volplyDisplay.SelectNormalArray = 'None'
 plasma_volplyDisplay.SelectTangentArray = 'None'
 plasma_volplyDisplay.RepeatTextures = 0
 plasma_volplyDisplay.EdgeColor = [1.0, 1.0, 1.0]
-plasma_volplyDisplay.Orientation = [0.0, 0.1, 0.0]
-plasma_volplyDisplay.Origin = [0.0, 2.0, 0.0]
+plasma_volplyDisplay.Orientation = [90.0, 0.0, 0.0]
 plasma_volplyDisplay.OSPRayUseScaleArray = 'All Exact'
-plasma_volplyDisplay.OSPRayScaleArray = 'Normals'
 plasma_volplyDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
 plasma_volplyDisplay.SelectOrientationVectors = 'None'
 plasma_volplyDisplay.ScaleFactor = 0.05931179821491242
@@ -114,24 +109,17 @@ plasma_volplyDisplay.SelectScaleArray = 'None'
 plasma_volplyDisplay.GlyphType = 'Arrow'
 plasma_volplyDisplay.GlyphTableIndexArray = 'None'
 plasma_volplyDisplay.GaussianRadius = 0.0029655899107456207
-plasma_volplyDisplay.SetScaleArray = ['POINTS', 'Normals']
+plasma_volplyDisplay.SetScaleArray = [None, '']
 plasma_volplyDisplay.ScaleTransferFunction = 'PiecewiseFunction'
-plasma_volplyDisplay.OpacityArray = ['POINTS', 'Normals']
+plasma_volplyDisplay.OpacityArray = [None, '']
 plasma_volplyDisplay.OpacityTransferFunction = 'PiecewiseFunction'
 plasma_volplyDisplay.DataAxesGrid = 'GridAxesRepresentation'
 plasma_volplyDisplay.PolarAxes = 'PolarAxesRepresentation'
 
-# init the 'PiecewiseFunction' selected for 'OSPRayScaleFunction'
-plasma_volplyDisplay.OSPRayScaleFunction.Points = [0.0, 0.0, 0.5, 0.0, 0.44475141167640686, 0.938144326210022, 0.5, 0.0, 0.9475138783454895, 0.06185567006468773, 0.5, 0.0, 1.0, 0.0824742317199707, 0.5, 0.0]
 
-# init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
-plasma_volplyDisplay.ScaleTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
-
-# init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
-plasma_volplyDisplay.OpacityTransferFunction.Points = [-1.0, 0.0, 0.5, 0.0, 1.0, 1.0, 0.5, 0.0]
 
 # init the 'PolarAxesRepresentation' selected for 'PolarAxes'
-plasma_volplyDisplay.PolarAxes.Orientation = [0.0, 0.1, 0.0]
+plasma_volplyDisplay.PolarAxes.Orientation = [90.0, 0.0, 0.0]
 
 # show data from half_Stellarator
 half_StellaratorDisplay = Show(half_Stellarator, renderView1, 'UnstructuredGridRepresentation')
@@ -195,7 +183,7 @@ renderView1.CameraViewUp = [-1.0, 0.0, 0.0]
 
 myview = GetActiveView()
 
-SaveScreenshot(abs_path+"\\OutputFiles\\ImageCollection4.png", myview,
+SaveScreenshot(abs_path+"\\OutputFiles\\ImageCollection5.png", myview,
         ImageResolution=[1442, 794],
         OverrideColorPalette="Black Background")
 
