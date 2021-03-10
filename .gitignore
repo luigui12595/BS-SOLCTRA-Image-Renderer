@@ -129,4 +129,6 @@ dmypy.json
 .pyre/
 
 InputFiles/points_1023_sim
-InputFiles/Trayectoria de 128 Partículas
+InputFiles/128
+
+OutputFiles/*.png

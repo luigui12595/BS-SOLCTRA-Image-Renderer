@@ -5,7 +5,7 @@ import subprocess
 import time
 
 ABS_PATH = os.path.dirname(os.path.abspath(__file__))
-RESULTS_PATH = ABS_PATH + '\\InputFiles\\points_1023_sim'
+RESULTS_PATH = ABS_PATH + '\\InputFiles\\128'
 
 def replace_in_file(file, order, obj_path):
    # read input file
@@ -50,7 +50,7 @@ def csv_to_xyz(input_file):
       with open(output_file, "w") as output:
          for line in input:
             current_line = line.split(",")
-            final_line = str(current_line[0]) + " " + str(current_line[1]) + " " + str(current_line[2])
+            final_line = str(current_line[0]) + " " + str(current_line[1]) + " " + str(current_line[2]) + " \n"
             output.write(final_line)
    print('File created')
    return output_file
